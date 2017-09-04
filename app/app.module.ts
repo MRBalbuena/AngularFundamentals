@@ -8,9 +8,12 @@ import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { NavBarComponent } from "./nav/navbar.component";
 import { EventDetailsComponent } from "./events/event-details/event-details.component";
 import { CreateEventComponent } from "./events/create-event.component";
+import {Error404Component} from "./errors/404.component";
+
 // Services
 import { EventsService } from './events/shared/events.service';
 import { ToastrService } from './common/toastr.service';
+import {EventRouteActivator} from "./events/event-details/event-route-activator.service";
 
 // route
 import { appRoutes } from "./routes";
@@ -27,9 +30,10 @@ import { appRoutes } from "./routes";
         EventThumbnailComponent,
         NavBarComponent,
         EventDetailsComponent,
-        CreateEventComponent
+        CreateEventComponent,
+        Error404Component
     ],
-    providers: [ EventsService, ToastrService ],
+    providers: [ EventsService, ToastrService, EventRouteActivator ],
     bootstrap: [ EventsAppComponent ]
 })
 export class AppModule { }
