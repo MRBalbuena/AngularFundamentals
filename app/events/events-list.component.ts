@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from "./shared/events.service";
 import { ToastrService } from "../common/toastr.service";
-
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'events-list',
@@ -9,15 +9,19 @@ import { ToastrService } from "../common/toastr.service";
 })
 
 export class EventsListComponent implements OnInit {
-    events: any[];
-    constructor(private eventService: EventsService, private toastr: ToastrService) {
+    events: any;
+    constructor(private eventService: EventsService, 
+        private toastr: ToastrService,
+        private route: ActivatedRoute
+    ) {
        
     }
 
     ngOnInit() { 
         // the resaon to put it here is avoid loading values in constructor and rather do it 
         // when component is first used.
-        this.events = this.eventService.getEvents();
+        //this.eventService.getEvents().subscribe(events => {this.events = events}); // now this is done in the event list resolver
+        this.events = this.route.snapshot.data['eventsData'];
     }
 
     handleThumbnailClick(eventName){
