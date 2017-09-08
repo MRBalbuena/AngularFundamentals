@@ -19,6 +19,8 @@ import { LoginComponent } from "./login.component";
         ProfileComponent,
         LoginComponent
     ],
-    providers: [],
+    providers: [
+        
+    ],
 })
 export class UserModule { }
