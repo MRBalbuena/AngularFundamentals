@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EventEmitter } from "events";
+import { IEvent } from "./index";
 
 @Component({
     selector: 'event-thumbnail',
@@ -15,7 +16,7 @@ import { EventEmitter } from "events";
 
 export class EventThumbnailComponent implements OnInit  {     
     ngOnInit(): void {}
-    @Input() event: any;
+    @Input() event: IEvent;
     
     // when using ngClass in the template : <div [ngClass]="getStartTimeClass()" 
     getStartTimeClass(){
