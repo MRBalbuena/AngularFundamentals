@@ -4,7 +4,10 @@ import { Router } from "@angular/router";
 
 @Component({
     selector: 'selector-name',
-    templateUrl: 'app/user/login.component.html'
+    templateUrl: 'app/user/login.component.html',
+    styles:[`
+        em { float:right; color: #E06C65; padding-left:10px }
+    `]
 })
 
 export class LoginComponent implements OnInit {
