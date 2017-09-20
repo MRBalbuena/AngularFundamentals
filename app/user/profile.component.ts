@@ -17,6 +17,8 @@ import {Router} from '@angular/router';
 
 export class ProfileComponent implements OnInit {
 profileForm : FormGroup;
+
+// as formcontrols are private can only be accessed from profileForm in the template
 private firstName: FormControl;
 private lastName: FormControl;
 
