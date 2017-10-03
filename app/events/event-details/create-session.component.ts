@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators, FormGroup} from '@angular/forms';
-import {ISession} from '../index';
+import {ISession, restrictedWords} from '../index';
+
 
 @Component({
   templateUrl: 'app/events/event-details/create-session.component.html',
@@ -33,16 +34,31 @@ export class CreateSessionComponent implements OnInit {
     this.abstract = new FormControl('', [
       Validators.required, 
       Validators.maxLength(400),
-      this.restrictedWords
+      restrictedWords(['foo', 'bar']) // now this is just a function passing the forbidden words
     ]);
 
     this.newSessionForm = new FormGroup({name: this.name, presenter: this.presenter, duration: this.duration, level: this.level, abstract: this.abstract})
   }
 
-  private restrictedWords(control: FormControl): {[key: string]: any}{
-    return control.value.includes('foo')? {'restrictedWord': 'foo'}: null;
-  }
+  // this is to check only one word
+  // private restrictedWords(control: FormControl): {[key: string]: any}{
+  //   return control.value.includes('foo')? {'restrictedWords': 'foo'}: null;
+  // }
 
+// moved to restricted word validator
+
+  // this is to check for any word passed in the FormControl
+  // private restrictedWords(words) {
+  //   return (control: FormControl): {[key: string]: any} => {
+  //     if(!words) return null;
+
+  //     var invalidWords = words
+  //       .map(w => control.value.includes(w)? w: null)
+  //       .filter(w => w != null);
+      
+  //     return control.value.includes('foo')? {'restrictedWords': invalidWords.join(', ')}: null;
+  //   }
+  // }
   saveSession(formValues){
     let newSession: ISession = {
       id: undefined,
