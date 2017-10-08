@@ -22,6 +22,7 @@ import {Error404Component} from "./errors/404.component";
 
 // From common
 import { ToastrService } from './common/toastr.service';
+import {CollapsibleWellComponent} from './common/collapsible-well.component';
 
 // route
 import { appRoutes } from "./routes";
@@ -46,7 +47,8 @@ import { AuthService } from "./user/auth.service";
         CreateEventComponent,
         Error404Component,
         CreateSessionComponent,
-        SessionListComponent
+        SessionListComponent,
+        CollapsibleWellComponent
     ],
     providers: [ 
         EventsService, 
