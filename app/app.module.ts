@@ -29,6 +29,7 @@ import { appRoutes } from "./routes";
 
 // users
 import { AuthService } from "./user/auth.service";
+import {DurationPipe} from './events/shared/duration.pipe';
 
 @NgModule({
     imports: [
@@ -48,7 +49,8 @@ import { AuthService } from "./user/auth.service";
         Error404Component,
         CreateSessionComponent,
         SessionListComponent,
-        CollapsibleWellComponent
+        CollapsibleWellComponent,
+        DurationPipe
     ],
     providers: [ 
         EventsService, 
