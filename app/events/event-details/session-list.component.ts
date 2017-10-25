@@ -9,6 +9,7 @@ import {ISession} from '../index';
 export class SessionListComponent implements OnInit, OnChanges {
   @Input() sessions: ISession[];
   @Input() filterBy: string;
+  @Input() sortBy: string;
   visibleSessions: ISession[];
   constructor() { }
 
@@ -17,6 +18,7 @@ export class SessionListComponent implements OnInit, OnChanges {
   ngOnChanges(){
     if(this.sessions){
       this.filterSessions(this.filterBy);
+      this.sortBy == 'name' ? this.visibleSessions.sort(this.sortByNameAsc): this.visibleSessions.sort(this.sortByVotesDesc);
     }
   }
 
@@ -29,4 +31,13 @@ export class SessionListComponent implements OnInit, OnChanges {
       })
     }
   }
+
+  private sortByNameAsc(s1: ISession, s2: ISession){
+    return s1.name > s2.name? 1: -1;
+  }
+
+  private sortByVotesDesc(s1: ISession, s2: ISession){
+    return s1.voters.length - s2.voters.length;
+  }
 }
+
