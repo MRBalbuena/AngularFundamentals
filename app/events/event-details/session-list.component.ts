@@ -32,12 +32,26 @@ export class SessionListComponent implements OnInit, OnChanges {
     }
   }
 
-  private sortByNameAsc(s1: ISession, s2: ISession){
-    return s1.name > s2.name? 1: -1;
+  sortByNameAsc(s1: ISession, s2: ISession) {
+    if(s1.name > s2.name) return 1
+    else if(s1.name === s2.name) return 0
+    else return -1
   }
-
-  private sortByVotesDesc(s1: ISession, s2: ISession){
-    return s1.voters.length - s2.voters.length;
+  
+  sortByVotesDesc(s1: ISession, s2: ISession) {
+    return s2.voters.length - s1.voters.length;
   }
+  
 }
+
+// function sortByNameAsc(s1: ISession, s2: ISession) {
+//   if(s1.name > s2.name) return 1
+//   else if(s1.name === s2.name) return 0
+//   else return -1
+// }
+
+// function sortByVotesDesc(s1: ISession, s2: ISession) {
+//   return s2.voters.length - s1.voters.length;
+// }
+
 

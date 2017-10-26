@@ -15,8 +15,8 @@ import {IEvent, ISession} from "../index";
 export class EventDetailsComponent implements OnInit {
 addMode : boolean;
 event : IEvent;
-filterBy = 'all';
-sortBy = 'name';
+filterBy: string = 'all';
+sortBy: string = 'votes';
 constructor(private eventService : EventsService, private route : ActivatedRoute) {
 
     }
