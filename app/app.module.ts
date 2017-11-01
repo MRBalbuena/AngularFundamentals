@@ -22,7 +22,7 @@ import {Error404Component} from "./errors/404.component";
 
 // From common
 import { ToastrService } from './common/toastr.service';
-import {CollapsibleWellComponent} from './common/collapsible-well.component';
+import { JQ_TOKEN, CollapsibleWellComponent } from './common/index';
 
 // route
 import { appRoutes } from "./routes";
@@ -30,6 +30,8 @@ import { appRoutes } from "./routes";
 // users
 import { AuthService } from "./user/auth.service";
 import {DurationPipe} from './events/shared/duration.pipe';
+
+declare let jQuery: Object;
 
 @NgModule({
     imports: [
