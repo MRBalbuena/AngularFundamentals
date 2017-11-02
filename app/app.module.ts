@@ -22,7 +22,7 @@ import {Error404Component} from "./errors/404.component";
 
 // From common
 import { ToastrService } from './common/toastr.service';
-import { JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent } from './common/index';
+import { JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective } from './common/index';
 
 // route
 import { appRoutes } from "./routes";
@@ -53,6 +53,7 @@ declare let jQuery: Object;
         SessionListComponent,
         CollapsibleWellComponent,
         SimpleModalComponent,
+        ModalTriggerDirective,
         DurationPipe
     ],
     providers: [ 
