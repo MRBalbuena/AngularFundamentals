@@ -13,7 +13,7 @@ import {
     EventRouteActivator,
     EventListResolver,
     CreateSessionComponent,
-    SessionListComponent 
+    SessionListComponent,    
 } from './events/index'
 
 import { EventsAppComponent } from './events-app.component';
@@ -22,7 +22,7 @@ import {Error404Component} from "./errors/404.component";
 
 // From common
 import { ToastrService } from './common/toastr.service';
-import { JQ_TOKEN, CollapsibleWellComponent } from './common/index';
+import { JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent } from './common/index';
 
 // route
 import { appRoutes } from "./routes";
@@ -52,6 +52,7 @@ declare let jQuery: Object;
         CreateSessionComponent,
         SessionListComponent,
         CollapsibleWellComponent,
+        SimpleModalComponent,
         DurationPipe
     ],
     providers: [ 
@@ -60,7 +61,8 @@ declare let jQuery: Object;
         EventRouteActivator,
         EventListResolver,
         AuthService,
-        { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
+        { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
+        { provide: JQ_TOKEN, useValue: jQuery }
     ],
     bootstrap: [ EventsAppComponent ]
 })
